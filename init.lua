@@ -5,7 +5,7 @@ local Event = require(folderPath .. "Dependencies.signal")
 
 utils = require(folderPath .. "Dependencies.utils")
 
-HooGraphics = {
+local HooGraphics = {
 	ObjectType = "HooGraphics";
 
 	DrawQueue = require(folderPath .. "drawQueue");
