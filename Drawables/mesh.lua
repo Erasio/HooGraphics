@@ -8,34 +8,8 @@ local Mesh = Class{
 	ObjectType = "Mesh";
 	__includes = Drawable;
 
-	init = function(self, data, drawData)
-		input = {}
-		if data["vertexformat"] then
-			table.insert(data["vertexformat"])
-			table.insert(data["vertexcount"])
-			table.insert(data["mode"])
-			table.insert(data["usage"])
-		elseif data["vertexcount"] then
-			if data["mode"] then
-				table.insert(data["vertexcount"])
-				table.insert(data["mode"])
-				table.insert(data["usage"])
-			elseif data["vertices"] then
-				table.insert(data["vertexcount"])
-				table.insert(data["vertices"])
-				table.insert(data["mode"])
-				table.insert(data["mode"])
-			end
-		elseif data["vertices"] then
-			table.insert(data["vertices"])
-			table.insert(data["mode"])
-			table.insert(data["usage"])
-		else
-			return
-		end
-				
-
-		Drawable.init(self, originalNewMesh(unpack(input)), drawData)
+	init = function(self, data, drawData)			
+		Drawable.init(self, originalNewMesh(unpack(data)), drawData)
 
 		return self
 	end;

@@ -22,11 +22,11 @@ local Animation = Class{
 			HooGraphics.images[imagePath] = originalNewImage(imagePath)
 		end
 		Drawable.init(self, HooGraphics.images[imagePath], drawData)
-		self.width = drawData.width or 10
-		self.height = drawData.height or 10
+		self.width = drawData.spriteWidth or 10
+		self.height = drawData.spriteHeight or 10
 		self.duration = drawData.duration or 1
 		self.currentTime = 0
-		self.paused = false
+		self.paused = drawData.paused or false
 		self.quads = {}
 		local widthCount = math.floor(self.drawable:getWidth() / self.width) - 1
 		local heightCount = math.floor(self.drawable:getHeight() / self.height) - 1
@@ -44,11 +44,27 @@ local Animation = Class{
 			end
 		end
 		self.quad = self.quads[1]
+
 		return self
 	end;
 
-	setPaused = function(self)
+	pause = function(self)
+		self.paused = true
+	end;
+
+	play = function(self, restart)
+		if restart then
+			self:reset()
+		end
+		self.paused = false
+	end;
+
+	togglePaused = function(self)
 		self.paused = not self.paused
+	end;
+
+	setPaused = function(self, paused)
+		self.paused = paused
 	end;
 
 	reset = function(self)

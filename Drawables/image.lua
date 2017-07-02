@@ -17,9 +17,11 @@ local Image = Class{
 				else
 					if drawData["mipmaps"] then
 						flags["mipmaps"] = drawData["mipmaps"]
+						drawData["mipmaps"] = nil
 					end
 					if drawData["linear"] then
 						flags["linear"] = drawData["linear"]
+						drawData["linear"] = nil
 					end
 				end
 

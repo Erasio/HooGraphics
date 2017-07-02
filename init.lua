@@ -27,7 +27,20 @@ love.graphics.draw = function(drawable, xOrQuad, yOrX, rOrY, sxOrR, syOrSx, oxOr
 		if drawable.updateValues then
 			if drawable:updateValues() then
 				if drawable.quad then
-					originalDraw(drawable.drawable, drawable.quad or xOrQuad, drawable.x or yOrX, drawable.y or rOrY, drawable.r or sxOrR, drawable.sx or syOrSx, drawable.sy or oxOrSy, drawable.ox or oyOrOx, drawable.oy or kxOrOy, drawable.kx or kyOrKx, drawable.ky or ky)
+					local input = {
+						drawable.drawable,
+						drawable.quad or xOrQuad,
+						drawable.x or yOrX,
+						drawable.y or rOrY,
+						drawable.r or sxOrR, 
+						drawable.sx or syOrSx,
+						drawable.sy or oxOrSy,
+						drawable.ox or oyOrOx,
+						drawable.oy or kxOrOy,
+						drawable.kx or kyOrKx,
+						drawable.ky or ky
+					}
+					originalDraw(unpack(input))
 				else
 					originalDraw(drawable.drawable, drawable.x or xOrQuad, drawable.y or yOrX, drawable.r or rOrY, drawable.sx or sxOrR, drawable.sy or syOrSx, drawable.ox or oxOrSy, drawable.oy or oyOrOx, drawable.kx or kxOrOy, drawable.ky or kyOrKx)
 				end
