@@ -25,7 +25,12 @@ local Animation = Class{
 		self.width = drawData.spriteWidth or 10
 		self.height = drawData.spriteHeight or 10
 		self.duration = drawData.duration or 1
-		self.loop = drawData.loop or true
+		if type(drawData.loop) ~= "nil" then
+			self.loop = drawData.loop
+		else
+			self.loop = true
+		end
+		print(self.loop)
 		self.currentTime = 0
 		self.paused = drawData.paused or false
 		self.quads = {}
@@ -85,7 +90,7 @@ local Animation = Class{
 				if self.loop then
 					self.currentTime = self.currentTime - self.duration
 				else
-					self.currentTime = self.duration
+					self.currentTime = self.duration - 0.001
 				end
 			end
 			self.quad = self.quads[math.floor(self.currentTime / (self.duration / #self.quads) + 1)]
