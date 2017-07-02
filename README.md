@@ -236,6 +236,7 @@ Animation implements the following additional drawData parameters:
     spriteWidth  -> (number) The width of the individual sprites (single size only)
     spriteHeight -> (number) The height of the individual sprites (single size only)
     spriteCount  -> (number) The amount of sprites within this sprite sheet
+    loop         -> (bool) Whether or not the animation should loop (will freeze on last frame if false). 
     duration     -> How long does it take for the animation to loop? (in seconds)
     paused       -> Set whether or not the animation is paused initially
 
