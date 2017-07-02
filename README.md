@@ -24,7 +24,9 @@ love.graphics.draw(test)
 
 ### love.graphics.newImage(data, drawData)
 data     -> filename or compressed image data
+
 drawData -> table containing additional parameters for drawing or the image.
+
 
 returns Image Object
 
@@ -41,11 +43,15 @@ img4 = love.grpahics.newImage("default.png", {mipmaps = true; x = 100; y = 100})
 (Sorry. I didn't find a good way to wrap this differently)
 
 drawData -> table containing additional parameters for drawing
+
 width    -> The desired canvas width
+
 height   -> The desired canvas height
+
 format   -> [CanvasFormat](https://love2d.org/wiki/CanvasFormat)
+
 msaa     -> The desired number of multisample antialiasing (MSAA) samples used when drawing to the Canvas.
-... -> 
+
 
 returns Canvas Object
 
@@ -59,8 +65,11 @@ canvas4 = love.graphics.newCanvas({x = 100; y = 100}, 100, 100, "hdr", 2) -- Cre
 
 ### love.graphics.newText(font, textstring, drawData)
 font -> The [font](https://love2d.org/wiki/Font) to use with this text
+
 textstring -> The string this text should contain
+
 drawData -> table containing additional parameters for drawing
+
 
 returns Text Object
 
@@ -72,8 +81,11 @@ text = love.graphics.newText(font, "Hello World!", {x = 100; y = 100})
 
 ### love.graphics.newVideo(filenameOrStream, loadaudio, drawData)
 filenameOrStream -> The path to the Ogg Theora video file or a video stream object.
+
 loadaudio        -> (bool) Whether to try to load the video's audio into an audio Source. If not explicitly set to true or false, it will try without causing an error if the video has no audio.
+
 drawData         -> table containing additional parameters for drawing
+
 
 returns Video Object
 
@@ -84,8 +96,11 @@ video = love.graphics.newVideo("somevideo.ogv", false, {x = 100; y = 100})
 
 ### love.graphics.newParticleSystem(texture, buffer, drawData)
 texture  -> A texture (image or canvas) this particle system should use.
+
 buffer   -> The max number of particles at the same time.
+
 drawData -> table containing additional parameters for drawing
+
 
 returns ParticleSystem Object
 
@@ -97,7 +112,9 @@ particleSystem = love.graphics.newParticleSystem(image, 42, {x = 100; y = 100})
 
 ### love.graphices.newMesh(data, drawData)
 data     -> A table containing parameters for the new Mesh
+
 drawData -> table containing additional parameters for drawing
+
 
 returns Mesh Object
 
@@ -110,7 +127,9 @@ mesh2 = love.graphics.newMesh({verticies, "fan", "dynamic"}, {x = 100; y = 100})
 
 ### love.graphics.newAnimation(filepath, drawData)
 filepath -> Location of the spritesheet
+
 drawData -> table containing additional parameters for drawing
+
 
 returns Animation Object
 
@@ -162,8 +181,11 @@ Additionally it's possible to bind another variable to a value. This means it wi
 
 #### Drawable:bindValue(variable, table, index)
 variable -> (string) The variable that should be kept up to date
+
 table    -> The table containing the variable that should be bound
+
 index    -> The index within the table defining the bound variable
+
 
 returns true if successful
 
@@ -185,6 +207,7 @@ image:bindValue("y", player)
 
 #### Drawable:unbindValue(variable)
 variable -> The index of Drawable that should be unbound (current value will be kept).
+
 
 returns true if index was removed. False if index didn't exist.
 
@@ -210,7 +233,7 @@ Animation is a simplistic spritesheet animation implementation. Sprites are expe
 
 Animation implements the following additional drawData parameters:
 
-		spriteWidth  -> (number) The width of the individual sprites (single size only)
+    spriteWidth  -> (number) The width of the individual sprites (single size only)
     spriteHeight -> (number) The height of the individual sprites (single size only)
     spriteCount  -> (number) The amount of sprites within this sprite sheet
     duration     -> How long does it take for the animation to loop? (in seconds)
@@ -236,6 +259,7 @@ Continues the animation.
 
 restart -> Whether or not to start the animation from the beginning when played
 
+
 returns nothing
 
 Usage Example:
@@ -251,6 +275,7 @@ Sets paused state.
 
 paused -> (bool) Whether or not the animation should play.
 
+
 returns nothing
 
 Usage Example:
@@ -262,6 +287,7 @@ animation:setPaused(true)
 #### Animation:togglePaused()
 Toggles pause state.
 
+
 returns nothing
 
 UsageExample:
@@ -272,6 +298,7 @@ animation:togglePaused()
 
 #### Animation:setProgress(progress)
 progress -> (number) The progress through the animation in percent (from 0 - 1)
+
 
 returns nothing
 
