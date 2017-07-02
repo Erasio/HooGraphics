@@ -1,6 +1,16 @@
 # HooGraphics
 HooGraphics is a Löve2D library intendet to simplify the process of drawing things.
 It is a standalone module though it uses a class implementation which comes with the module and will be used locally.
+
+## Setup
+
+To add HooGraphics to your project simply drop the HooGraphics folder next to your main.lua and require the init file during love.load.
+
+```lua
+function love.load()
+    HooGraphics = require("HooGraphics.init")
+end
+```
  
 ## Functionailty
 HooGraphics provides a wrapper for every drawable object. 
