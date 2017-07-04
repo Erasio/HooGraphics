@@ -82,6 +82,12 @@ local Drawable = Class{
 			return true
 		end
 	end;
+
+	destroy = function(self)
+		for k, v in pairs(self) do
+			self[k] = nil
+		end
+	end;
 }
 
 return Drawable

@@ -11,17 +11,19 @@ local Image = Class{
 	init = function(self, data, drawData)
 		if type(data) == "string" then
 			if not HooGraphics.images[data] then
-				flags = {}
-				if drawData["flags"] then
-					flags = drawData["flags"]
-				else
-					if drawData["mipmaps"] then
-						flags["mipmaps"] = drawData["mipmaps"]
-						drawData["mipmaps"] = nil
-					end
-					if drawData["linear"] then
-						flags["linear"] = drawData["linear"]
-						drawData["linear"] = nil
+				if drawData then
+					flags = {}
+					if drawData["flags"] then
+						flags = drawData["flags"]
+					else
+						if drawData["mipmaps"] then
+							flags["mipmaps"] = drawData["mipmaps"]
+							drawData["mipmaps"] = nil
+						end
+						if drawData["linear"] then
+							flags["linear"] = drawData["linear"]
+							drawData["linear"] = nil
+						end
 					end
 				end
 

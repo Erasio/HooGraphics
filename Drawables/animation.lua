@@ -30,7 +30,6 @@ local Animation = Class{
 		else
 			self.loop = true
 		end
-		print(self.loop)
 		self.currentTime = 0
 		self.paused = drawData.paused or false
 		self.quads = {}
